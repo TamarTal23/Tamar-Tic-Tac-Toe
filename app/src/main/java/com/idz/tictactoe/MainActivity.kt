@@ -36,12 +36,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         resetBoard()
+        updateTurnMessage()
 
         binding?.playAgainButton?.setOnClickListener {
             resetBoard()
             binding?.playAgainButton?.visibility = View.GONE
-            binding?.gameResultTextView?.visibility = View.GONE
             currentPlayer = Player.X
+            updateTurnMessage()
         }
     }
 
@@ -83,15 +84,19 @@ class MainActivity : AppCompatActivity() {
 
         var winner = checkWinner()
         if (winner != null) {
-            binding?.gameResultTextView?.visibility = View.VISIBLE
-            binding?.gameResultTextView?.text = getString(R.string.player_wins, winner)
+            binding?.gameProgressTextView?.text = getString(R.string.player_wins, winner)
             binding?.playAgainButton?.visibility = View.VISIBLE
             setBoardEnabled(false)
         } else if (isBoardFull()) {
-            binding?.gameResultTextView?.visibility = View.VISIBLE
-            binding?.gameResultTextView?.text = getString(R.string.draw)
+            binding?.gameProgressTextView?.text = getString(R.string.draw)
             binding?.playAgainButton?.visibility = View.VISIBLE
+        } else {
+            updateTurnMessage()
         }
+    }
+
+    private fun updateTurnMessage() {
+        binding?.gameProgressTextView?.text = getString(R.string.player_turn, currentPlayer)
     }
 
     private fun setBoardEnabled(enabled: Boolean) {
@@ -112,7 +117,7 @@ class MainActivity : AppCompatActivity() {
             if (board[i][0] != "" && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
                 return board[i][0]
             }
-            
+
             if (board[0][i] != "" && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
                 return board[0][i]
             }

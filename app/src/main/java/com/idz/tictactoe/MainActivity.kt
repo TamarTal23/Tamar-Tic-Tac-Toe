@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(binding?.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -37,6 +36,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         resetBoard()
+
+        binding?.playAgainButton?.setOnClickListener {
+            resetBoard()
+            binding?.playAgainButton?.visibility = View.GONE
+            currentPlayer = Player.X
+        }
     }
 
     private fun resetBoard() {
@@ -73,6 +78,19 @@ class MainActivity : AppCompatActivity() {
             currentPlayer = Player.X
         }
 
+        if (isBoardFull()) {
+            binding?.playAgainButton?.visibility = View.VISIBLE
+        }
+    }
+
+    private fun isBoardFull(): Boolean {
+        for (button in boardList) {
+            if (button.text == "") {
+                return false
+            }
+        }
+
+        return true
     }
 
 }

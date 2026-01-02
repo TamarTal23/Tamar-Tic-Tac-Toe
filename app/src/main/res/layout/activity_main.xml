@@ -20,7 +20,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <LinearLayout
+        android:id="@+id/boardLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="20dp"
@@ -33,47 +35,29 @@
 
         <LinearLayout style="@style/row">
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
         </LinearLayout>
 
         <LinearLayout style="@style/row">
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
         </LinearLayout>
 
         <LinearLayout style="@style/row">
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
 
-            <Button
-                style="@style/column"
-                android:text="X" />
+            <Button style="@style/column" />
         </LinearLayout>
 
 

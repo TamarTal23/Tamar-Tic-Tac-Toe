@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         binding?.playAgainButton?.setOnClickListener {
             resetBoard()
-            binding?.playAgainButton?.visibility = View.GONE
+            binding?.playAgainButton?.visibility = View.INVISIBLE
             currentPlayer = Player.X
             updateTurnMessage()
         }
@@ -58,8 +58,7 @@ class MainActivity : AppCompatActivity() {
                         cell.setOnClickListener {
                             boardCellTapped(cell)
                         }
-                        // Optionally set a visible background for debugging
-                        cell.setBackgroundResource(android.R.drawable.btn_default)
+
                         boardList.add(cell)
                     }
                 }
@@ -76,13 +75,15 @@ class MainActivity : AppCompatActivity() {
 
         if (currentPlayer == Player.X) {
             cell.text = "X"
+            cell.setTextColor(resources.getColor(android.R.color.holo_red_dark, null))
             currentPlayer = Player.O
         } else {
             cell.text = "O"
+            cell.setTextColor(resources.getColor(android.R.color.holo_blue_dark, null))
             currentPlayer = Player.X
         }
 
-        var winner = checkWinner()
+        val winner = checkWinner()
         if (winner != null) {
             binding?.gameProgressTextView?.text = getString(R.string.player_wins, winner)
             binding?.playAgainButton?.visibility = View.VISIBLE

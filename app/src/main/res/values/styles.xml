@@ -11,12 +11,30 @@
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">40sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif-condensed-medium"</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 
-        <item name="android:onClick">boardCellTapped</item>
+    <style name="playAgainButtonStyle">
+        <item name="android:backgroundTint">@android:color/holo_blue_light</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="verticalDivStyle">
+        <item name="android:layout_width">4dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="horizontalDivStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:background">@android:color/black</item>
     </style>
 </resources>
